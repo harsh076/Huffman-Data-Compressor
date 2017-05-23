@@ -1,0 +1,29 @@
+
+    compress will -
+    1.  takes input the name of the file(fileName) to be compressed.
+    2.  creates an empty file named "~temp_hash_file.md5"
+    3.  compresses the file and creates a file named fileName.hz
+    4.  writes the encoding information to the file "~temp_hash_file.md5"
+
+    decompress will -
+    1.  Create a Hash Table [key->sum(primes) value->code,character].
+    2.  Use Code Table to decompress the file.
+
+    huffman will -
+    Check if user wants to compress or decompress a file.
+        if compress
+        1.  Take input the name of the file to be compressed (say : "fileName").
+        2.  Create folder named "data" in same directory as of compress if it does not exist already.
+        3.  run ./compress fileName
+        4.  compute md5sum of fileName.hz (say : "md5_fileName").
+        5.  rename the file named "~temp_hash_file.md5" to "md5_fileName".
+        6.  move the file named "md5_fileName" to the data folder.
+
+        if decompress
+        1.  take input the name of file to be decompressed (say : "fileName.hz").
+        2.  compute the md5sum of "fileName.hz"
+        3.  check if file exist in data folder
+            if no
+            1.  return error message
+            if yes
+            1.  run ./decompress fileName.hz data/md5_fileName
